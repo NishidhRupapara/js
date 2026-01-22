@@ -1,86 +1,141 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>JavaScript Variables & Datatypes</title>
-</head>
-<body>
+# 📘 JavaScript 
 
-<h2>JavaScript Variable – Examples</h2>
+---
 
-<h3>Example 1</h3>
-<code>console.log(nm);</code><br>
-<code>let nm = "name";</code>
-<p><b>Answer / Error:</b> ReferenceError</p>
-<p><b>Why:</b> let variable cannot be used before declaration.</p>
+## 📌 VARIABLES IN JAVASCRIPT
 
-<h3>Example 2</h3>
-<code>console.log(b);</code><br>
-<code>var b = "username";</code>
-<p><b>Answer:</b> undefined</p>
-<p><b>Why:</b> var is hoisted, value assigned later.</p>
+### 🔹 Variable Hoisting & Scope
 
-<h3>Example 3</h3>
-<code>var x = 1;</code><br>
-<code>{ var x = 2; }</code><br>
-<code>console.log(x);</code>
-<p><b>Answer:</b> 2</p>
-<p><b>Why:</b> var is function scoped, not block scoped.</p>
+| Example | Code | Output | Explanation |
+|------|------|--------|-------------|
+| **1** | `console.log(nm); let nm = "name";` | ❌ ReferenceError | `let` variables are hoisted but not initialized. Accessing before declaration causes a **Temporal Dead Zone (TDZ)** error. |
+| **2** | `console.log(b); var b = "username";` | `undefined` | `var` is hoisted and initialized with `undefined`. |
+| **3** | `var x = 1; { var x = 2; } console.log(x);` | `2` | `var` is **not block-scoped**. Inner value overwrites outer value. |
+| **4** | `let a = 10; { let a = 20; console.log(a); } console.log(a);` | `Inside: 20`<br>`Outside: 10` | `let` is **block-scoped**. Inner variable does not affect outer variable. |
 
-<h3>Example 4</h3>
-<code>let a = 10;</code><br>
-<code>{ let a = 20; }</code><br>
-<code>console.log(a);</code>
-<p><b>Answer:</b> 10</p>
-<p><b>Why:</b> let is block scoped.</p>
+---
 
-<h3>Example 5</h3>
-<code>const person = { name: "demo" };</code><br>
-<code>person.name = "user";</code>
-<p><b>Answer:</b> Allowed</p>
-<p><b>Why:</b> const allows object property change.</p>
+## 📌 DATA TYPES 
 
-<hr>
+### 🔹 JavaScript Type Conversion Examples
 
-<h2>JavaScript Datatypes – Examples</h2>
+| Example | Expression | Output | Explanation |
+|------|------------|--------|-------------|
+| **1** | `true + false` | `1` | `true → 1`, `false → 0` |
+| **2** | `null + 1` | `1` | `null` converts to `0` |
+| **3** | `"12" + 12` | `"1212"` | `+` with a string performs **concatenation** |
+| **4** | `!!undefined` | `false` | `undefined` is falsy |
+| **5** | `"12" - 1` | `11` | `-` forces numeric conversion |
+| **6** | `typeof NaN` | `"number"` | `NaN` is a failed numeric operation but still a number |
 
-<h3>Example 1</h3>
-<code>true + false</code>
-<p><b>Answer:</b> 1</p>
-<p><b>Why:</b> true = 1, false = 0</p>
+---
 
-<h3>Example 2</h3>
-<code>null + 1</code>
-<p><b>Answer:</b> 1</p>
-<p><b>Why:</b> null is converted to 0</p>
+## 📌 UNDEFINED vs NULL
 
-<h3>Example 3</h3>
-<code>"12" + 12</code>
-<p><b>Answer:</b> "1212"</p>
-<p><b>Why:</b> + joins strings</p>
+### 🔹 Comparison Table
 
-<h3>Example 4</h3>
-<code>!!undefined</code>
-<p><b>Answer:</b> false</p>
-<p><b>Why:</b> undefined is falsy</p>
+| Feature | `undefined` | `null` |
+|------|-------------|--------|
+| Meaning | Variable declared but not assigned | Explicit empty value |
+| Assigned by | JavaScript | Developer |
+| Type | `"undefined"` | `"object"` (JavaScript bug) |
+| Falsy | ✅ | ✅ |
 
-<h3>Example 5</h3>
-<code>"12" - 1</code>
-<p><b>Answer:</b> 11</p>
-<p><b>Why:</b> string converted to number</p>
+# 📘 JavaScript Operators Guide
 
-<h3>typeof NaN</h3>
-<p><b>Answer:</b> number</p>
-<p><b>Why:</b> NaN comes from a number operation</p>
+This repository contains a simple and beginner-friendly explanation of **JavaScript Operators** with examples.
 
-<h3>Undefined vs Null</h3>
-<code>let x;</code><br>
-<p>Output: undefined</p>
+---
 
-<code>let y = null;</code><br>
-<p>Output: null</p>
+## 📌 Types of Operators in JavaScript
 
-<p><b>undefined:</b> value not assigned</p>
-<p><b>null:</b> empty value given by programmer</p>
+- Arithmetic Operators  
+- Comparison Operators  
+- Logical Operators  
+- Assignment Operators  
+- Unary Operators  
+- Ternary Operator  
 
-</body>
-</html>
+---
+
+## ➕ Arithmetic Operators
+
+Used to perform mathematical operations.
+
+| Operator | Description | Example |
+|--------|------------|---------|
+| `+` | Addition / Concatenation | `1 + 2 → 3` <br> `"user" + " Name" → "user Name"` |
+| `-` | Subtraction | `5 - 2 → 3` |
+| `*` | Multiplication | `2 * 3 → 6` |
+| `/` | Division | `6 / 2 → 3` |
+| `%` | Modulus (Remainder) | `5 % 2 → 1` |
+| `**` | Exponentiation | `2 ** 3 → 8` |
+| `++` | Increment | `a++` |
+| `--` | Decrement | `a--` |
+
+⚠️ **Note:**  
+- `5 + "5"` → `"55"` (Concatenation)  
+- `5 + 5` → `10` (Addition)
+
+---
+
+## 🔍 Comparison Operators
+
+Used to compare two values.
+
+| Operator | Description | Example |
+|--------|------------|---------|
+| `==` | Equal (value only) | `5 == "5" → true` |
+| `===` | Strict Equal (value + type) | `5 === "5" → false` |
+| `!=` | Not Equal (value only) | `5 != "5" → false` |
+| `!==` | Strict Not Equal | `5 !== "5" → true` |
+| `>` | Greater Than | `5 > 3 → true` |
+| `<` | Less Than | `2 < 4 → true` |
+| `>=` | Greater or Equal | `5 >= 5 → true` |
+| `<=` | Less or Equal | `3 <= 5 → true` |
+
+---
+
+## 🔗 Logical Operators
+
+Used to combine multiple conditions.
+
+| Operator | Description | Example |
+|--------|------------|---------|
+| `&&` | Logical AND | `true && false → false` |
+| `||` | Logical OR | `true || false → true` |
+| `!` | Logical NOT | `!true → false` |
+
+## 📝 Assignment Operators
+
+Used to assign values to variables.
+
+| Operator | Example | Meaning |
+|--------|--------|--------|
+| `=` | `a = 5` | Assign |
+| `+=` | `a += 3` | `a = a + 3` |
+| `-=` | `a -= 2` | `a = a - 2` |
+| `*=` | `a *= 4` | `a = a * 4` |
+| `/=` | `a /= 2` | `a = a / 2` |
+| `%=` | `a %= 3` | `a = a % 3` |
+
+## 🔁 Unary Operators
+
+Operate on a single operand.
+
+| Operator | Description | Example |
+|--------|------------|---------|
+| `++` | Increment | `a++` |
+| `--` | Decrement | `a--` |
+| `+` | Convert to number | `+a` |
+| `-` | Negate number | `-a` |
+
+## ❓ Ternary Operator
+
+Used as a short form of `if-else`.
+
+| Part | Description | Example |
+|-----|------------|---------|
+| Condition | Expression to evaluate | `age >= 18` |
+| `?` | If condition is true | `"Yes"` |
+| `:` | If condition is false | `"No"` |
